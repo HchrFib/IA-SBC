@@ -16,8 +16,8 @@ Los objetivos que deseamos alcanzar y que ya se han ido comentando a lo largo de
   ## Ejecución del "Sistema Basado en el Conocimiento"
 
 1. Para ejecutar la práctica en linux simplemente usar el script 
-  ```
-     run.sh
+```
+     ./run.sh
 ```
 ### Funcionalidades del programa:
 
