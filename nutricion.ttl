@@ -1,0 +1,1662 @@
+@prefix : <http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/> .
+
+<http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3> rdf:type owl:Ontology .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/alergenos
+:alergenos rdf:type owl:ObjectProperty ;
+           rdfs:domain :Plato ;
+           rdfs:range :Intolerancia .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/consiste_de
+:consiste_de rdf:type owl:ObjectProperty ;
+             rdfs:domain :Comida ;
+             rdfs:range :Plato .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/es_intolerante_a
+:es_intolerante_a rdf:type owl:ObjectProperty ;
+                  rdfs:domain :Persona ;
+                  rdfs:range :Intolerancia .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/formado_por
+:formado_por rdf:type owl:ObjectProperty ;
+             rdfs:domain :Menu ;
+             rdfs:range :Día .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ingrediente_principal
+:ingrediente_principal rdf:type owl:ObjectProperty ;
+                       rdfs:domain :Plato ;
+                       rdfs:range :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/padece_de
+:padece_de rdf:type owl:ObjectProperty ;
+           rdfs:domain :Persona ;
+           rdfs:range :Enfermedad .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/preferencia_negativa
+:preferencia_negativa rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Persona ;
+                      rdfs:range :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/preferencia_positiva
+:preferencia_positiva rdf:type owl:ObjectProperty ;
+                      rdfs:domain :Persona ;
+                      rdfs:range :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/tiene
+:tiene rdf:type owl:ObjectProperty ;
+       rdfs:domain :Día ;
+       rdfs:range :Comida .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/actividad_fisica
+:actividad_fisica rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Persona ;
+                  rdfs:range xsd:integer .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/azucares
+:azucares rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Nutrientes ;
+          rdfs:range [ rdf:type rdfs:Datatype ;
+                       owl:oneOf [ rdf:type rdf:List ;
+                                   rdf:first "alto" ;
+                                   rdf:rest [ rdf:type rdf:List ;
+                                              rdf:first "bajo" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "medio" ;
+                                                         rdf:rest rdf:nil
+                                                       ]
+                                            ]
+                                 ]
+                     ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/calcio
+:calcio rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Nutrientes ;
+        rdfs:range [ rdf:type rdfs:Datatype ;
+                     owl:oneOf [ rdf:type rdf:List ;
+                                 rdf:first "alto" ;
+                                 rdf:rest [ rdf:type rdf:List ;
+                                            rdf:first "bajo" ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first "medio" ;
+                                                       rdf:rest rdf:nil
+                                                     ]
+                                          ]
+                               ]
+                   ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/calorias
+:calorias rdf:type owl:DatatypeProperty ;
+          rdfs:domain :Nutrientes ;
+          rdfs:range [ rdf:type rdfs:Datatype ;
+                       owl:oneOf [ rdf:type rdf:List ;
+                                   rdf:first "alto" ;
+                                   rdf:rest [ rdf:type rdf:List ;
+                                              rdf:first "bajo" ;
+                                              rdf:rest [ rdf:type rdf:List ;
+                                                         rdf:first "medio" ;
+                                                         rdf:rest rdf:nil
+                                                       ]
+                                            ]
+                                 ]
+                     ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/descripcion
+:descripcion rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf owl:topDataProperty ;
+             rdfs:domain :Plato ;
+             rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/edad
+:edad rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Persona ;
+      rdfs:range xsd:int .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/hierro
+:hierro rdf:type owl:DatatypeProperty ;
+        rdfs:domain :Nutrientes ;
+        rdfs:range [ rdf:type rdfs:Datatype ;
+                     owl:oneOf [ rdf:type rdf:List ;
+                                 rdf:first "alto" ;
+                                 rdf:rest [ rdf:type rdf:List ;
+                                            rdf:first "bajo" ;
+                                            rdf:rest [ rdf:type rdf:List ;
+                                                       rdf:first "medio" ;
+                                                       rdf:rest rdf:nil
+                                                     ]
+                                          ]
+                               ]
+                   ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ingrediente_principal
+:ingrediente_principal rdf:type owl:DatatypeProperty ;
+                       rdfs:subPropertyOf owl:topDataProperty ;
+                       rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/nombreEnf
+:nombreEnf rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Enfermedad ;
+           rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/nombrePref
+:nombrePref rdf:type owl:DatatypeProperty ;
+            rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/num_dia
+:num_dia rdf:type owl:DatatypeProperty ,
+                  owl:FunctionalProperty ;
+         rdfs:domain :Día ;
+         rdfs:range [ rdf:type rdfs:Datatype ;
+                      owl:oneOf [ rdf:type rdf:List ;
+                                  rdf:first "Domingo" ;
+                                  rdf:rest [ rdf:type rdf:List ;
+                                             rdf:first "Jueves" ;
+                                             rdf:rest [ rdf:type rdf:List ;
+                                                        rdf:first "Lunes" ;
+                                                        rdf:rest [ rdf:type rdf:List ;
+                                                                   rdf:first "Martes" ;
+                                                                   rdf:rest [ rdf:type rdf:List ;
+                                                                              rdf:first "Miercoles" ;
+                                                                              rdf:rest [ rdf:type rdf:List ;
+                                                                                         rdf:first "Sabado" ;
+                                                                                         rdf:rest [ rdf:type rdf:List ;
+                                                                                                    rdf:first "Viernes" ;
+                                                                                                    rdf:rest rdf:nil
+                                                                                                  ]
+                                                                                       ]
+                                                                            ]
+                                                                 ]
+                                                      ]
+                                           ]
+                                ]
+                    ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/puntuacion
+:puntuacion rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Día ;
+            rdfs:range xsd:float .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/saludable
+:saludable rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Plato ;
+           rdfs:range xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/sexo
+:sexo rdf:type owl:DatatypeProperty ,
+               owl:FunctionalProperty ;
+      rdfs:domain :Persona ;
+      rdfs:range [ rdf:type rdfs:Datatype ;
+                   owl:oneOf [ rdf:type rdf:List ;
+                               rdf:first "Hombre" ;
+                               rdf:rest [ rdf:type rdf:List ;
+                                          rdf:first "Mujer" ;
+                                          rdf:rest rdf:nil
+                                        ]
+                             ]
+                 ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/temporada
+:temporada rdf:type owl:DatatypeProperty ;
+           rdfs:domain :Plato ;
+           rdfs:range [ rdf:type rdfs:Datatype ;
+                        owl:oneOf [ rdf:type rdf:List ;
+                                    rdf:first "calor" ;
+                                    rdf:rest [ rdf:type rdf:List ;
+                                               rdf:first "frio" ;
+                                               rdf:rest rdf:nil
+                                             ]
+                                  ]
+                      ] .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/temporada_actual
+:temporada_actual rdf:type owl:DatatypeProperty ;
+                  rdfs:domain :Persona ;
+                  rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/tipo_TipoComida
+:tipo_TipoComida rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+                 rdfs:domain :TipoComida ;
+                 rdfs:range xsd:string .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/tipo_plato
+:tipo_plato rdf:type owl:DatatypeProperty ;
+            rdfs:domain :Plato ;
+            rdfs:range [ rdf:type rdfs:Datatype ;
+                         owl:oneOf [ rdf:type rdf:List ;
+                                     rdf:first "Desayuno" ;
+                                     rdf:rest [ rdf:type rdf:List ;
+                                                rdf:first "Postre" ;
+                                                rdf:rest [ rdf:type rdf:List ;
+                                                           rdf:first "Primero" ;
+                                                           rdf:rest [ rdf:type rdf:List ;
+                                                                      rdf:first "Segundo" ;
+                                                                      rdf:rest rdf:nil
+                                                                    ]
+                                                         ]
+                                              ]
+                                   ]
+                       ] .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Comida
+:Comida rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ComidaAlmuerzo
+:ComidaAlmuerzo rdf:type owl:Class ;
+                rdfs:subClassOf :Comida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ComidaCena
+:ComidaCena rdf:type owl:Class ;
+            rdfs:subClassOf :Comida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ComidaDesayuno
+:ComidaDesayuno rdf:type owl:Class ;
+                rdfs:subClassOf :Comida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Desayuno
+:Desayuno rdf:type owl:Class ;
+          rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Día
+:Día rdf:type owl:Class ;
+     rdfs:subClassOf :Nutrientes .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Enfermedad
+:Enfermedad rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Intolerancia
+:Intolerancia rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Menu
+:Menu rdf:type owl:Class ;
+      rdfs:subClassOf :Nutrientes .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Nutrientes
+:Nutrientes rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Persona
+:Persona rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Plato
+:Plato rdf:type owl:Class ;
+       rdfs:subClassOf :Nutrientes .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Postre
+:Postre rdf:type owl:Class ;
+        rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Primero
+:Primero rdf:type owl:Class ;
+         rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Segundo
+:Segundo rdf:type owl:Class ;
+         rdfs:subClassOf :Plato .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TipoComida
+:TipoComida rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3#Lechuga/Cogollos
+<http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3#Lechuga/Cogollos> rdf:type owl:NamedIndividual ,
+                                                                                                   :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Albaricoques
+:Albaricoques rdf:type owl:NamedIndividual ,
+                       :Desayuno ,
+                       :Postre ;
+              :ingrediente_principal :Fruta ;
+              :azucares "medio" ;
+              :calcio "medio" ;
+              :calorias "bajo" ;
+              :descripcion "Albaricoques" ;
+              :hierro "medio" ;
+              :saludable "true"^^xsd:boolean ;
+              :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Anemia
+:Anemia rdf:type owl:NamedIndividual ,
+                 :Enfermedad .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Arroz
+:Arroz rdf:type owl:NamedIndividual ,
+                :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ArrozMilanesa
+:ArrozMilanesa rdf:type owl:NamedIndividual ,
+                        :Primero ;
+               :ingrediente_principal :Arroz ;
+               :azucares "medio" ;
+               :calcio "medio" ;
+               :calorias "bajo" ;
+               :descripcion "Arroz a la milanesa" ;
+               :hierro "medio" ;
+               :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Bizcocho
+:Bizcocho rdf:type owl:NamedIndividual ,
+                   :Desayuno ;
+          :alergenos :Celiaco ,
+                     :Huevo ,
+                     :Lactosa ;
+          :ingrediente_principal :Bolleria ;
+          :azucares "alto" ;
+          :calcio "medio" ;
+          :calorias "alto" ;
+          :descripcion "Bizcocho casero" ;
+          :hierro "medio" ;
+          :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Bolleria
+:Bolleria rdf:type owl:NamedIndividual ,
+                   :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/BrochetasCarneChampis
+:BrochetasCarneChampis rdf:type owl:NamedIndividual ,
+                                :Segundo ;
+                       :ingrediente_principal :Carne ;
+                       :azucares "bajo" ;
+                       :calcio "medio" ;
+                       :calorias "medio" ;
+                       :descripcion "Brochetas de carne y champiñones" ;
+                       :hierro "alto" ;
+                       :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Canelones
+:Canelones rdf:type owl:NamedIndividual ,
+                    :Segundo ;
+           :alergenos :Celiaco ;
+           :ingrediente_principal :Carne ,
+                                  :Pasta ;
+           :azucares "medio" ;
+           :calcio "alto" ;
+           :calorias "alto" ;
+           :descripcion "Canelones de la abuela" ;
+           :hierro "medio" ;
+           :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Carne
+:Carne rdf:type owl:NamedIndividual ,
+                :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Celiaco
+:Celiaco rdf:type owl:NamedIndividual ,
+                  :Intolerancia .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Cereales
+:Cereales rdf:type owl:NamedIndividual ,
+                   :Desayuno ,
+                   :TipoComida ;
+          :alergenos :Celiaco ,
+                     :Lactosa ;
+          :ingrediente_principal :Cereales ;
+          :azucares "alto" ;
+          :calcio "alto" ;
+          :calorias "medio" ;
+          :hierro "medio" ;
+          :saludable "true"^^xsd:boolean ;
+          :tipo_plato "Cereales de desayuno" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Cerezas
+:Cerezas rdf:type owl:NamedIndividual ,
+                  :Desayuno ,
+                  :Postre ;
+         :ingrediente_principal :Fruta ;
+         :azucares "medio" ;
+         :calcio "medio" ;
+         :calorias "bajo" ;
+         :descripcion "Cerezas" ;
+         :hierro "medio" ;
+         :saludable "true"^^xsd:boolean ;
+         :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CogollosAnchoas
+:CogollosAnchoas rdf:type owl:NamedIndividual ,
+                          :Primero ;
+                 :alergenos :Pescado ;
+                 :ingrediente_principal <http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3#Lechuga/Cogollos> ;
+                 :azucares "bajo" ;
+                 :calcio "medio" ;
+                 :calorias "bajo" ;
+                 :descripcion "Cogollos con anchoas" ;
+                 :hierro "medio" ;
+                 :saludable "true"^^xsd:boolean ;
+                 :tipo_plato "Primero" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Colesterol
+:Colesterol rdf:type owl:NamedIndividual ,
+                     :Enfermedad .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ConejoSalsa
+:ConejoSalsa rdf:type owl:NamedIndividual ,
+                      :Segundo ;
+             :ingrediente_principal :Carne ;
+             :azucares "bajo" ;
+             :calcio "medio" ;
+             :calorias "alto" ;
+             :descripcion "Conejo en salsa" ;
+             :hierro "alto" ;
+             :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CorderoTomate
+:CorderoTomate rdf:type owl:NamedIndividual ,
+                        :Segundo ;
+               :ingrediente_principal :Carne ;
+               :azucares "bajo" ;
+               :calcio "medio" ;
+               :calorias "medio" ;
+               :descripcion "Cordero a la plancha con tomate" ;
+               :hierro "alto" ;
+               :ingrediente_principal "Carne" ;
+               :saludable "true"^^xsd:boolean ;
+               :tipo_plato "Segundo" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CremaCalabacin
+:CremaCalabacin rdf:type owl:NamedIndividual ,
+                         :Primero ;
+                :ingrediente_principal :Verduras ;
+                :azucares "bajo" ;
+                :calcio "medio" ;
+                :calorias "bajo" ;
+                :descripcion "Crema fría de calabacín" ;
+                :hierro "medio" ;
+                :ingrediente_principal "Calabacín" ;
+                :saludable "true"^^xsd:boolean ;
+                :temporada "calor" ;
+                :tipo_plato "Primero" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CremaVerduras
+:CremaVerduras rdf:type owl:NamedIndividual ,
+                        :Primero ;
+               :ingrediente_principal :Verduras ;
+               :azucares "bajo" ;
+               :calcio "medio" ;
+               :calorias "bajo" ;
+               :descripcion "Crema de verduras" ;
+               :hierro "alto" ;
+               :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CremaZanahoria
+:CremaZanahoria rdf:type owl:NamedIndividual ,
+                         :Primero ;
+                :ingrediente_principal :Verduras ;
+                :azucares "bajo" ;
+                :calcio "medio" ;
+                :calorias "bajo" ;
+                :descripcion "Crema de zanahoria" ;
+                :hierro "medio" ;
+                :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CroquetasJamon
+:CroquetasJamon rdf:type owl:NamedIndividual ,
+                         :Segundo ;
+                :alergenos :Lactosa ;
+                :ingrediente_principal :Celiaco ,
+                                       :Lacteo ;
+                :azucares "medio" ;
+                :calcio "alto" ;
+                :calorias "alto" ;
+                :descripcion "Croquetas de jamón con ensalada" ;
+                :hierro "alto" ;
+                :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Cuajada
+:Cuajada rdf:type owl:NamedIndividual ,
+                  :Desayuno ;
+         :alergenos :Lactosa ;
+         :ingrediente_principal :Lacteo ;
+         :azucares "alto" ;
+         :calcio "alto" ;
+         :calorias "alto" ;
+         :descripcion "Cuajada con azúcar o miel" ;
+         :hierro "medio" ;
+         :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/CuajadaGalletas
+:CuajadaGalletas rdf:type owl:NamedIndividual ,
+                          :Desayuno ;
+                 :alergenos :Celiaco ,
+                            :Lactosa ;
+                 :ingrediente_principal :Cereales ,
+                                        :Lacteo ;
+                 :azucares "alto" ;
+                 :calcio "alto" ;
+                 :calorias "alto" ;
+                 :descripcion "Cuajada con miel y galletas integrales" ;
+                 :hierro "medio" ;
+                 :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Diabetes
+:Diabetes rdf:type owl:NamedIndividual ,
+                   :Enfermedad .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Embutido
+:Embutido rdf:type owl:NamedIndividual ,
+                   :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EnsaladaGarbanzos
+:EnsaladaGarbanzos rdf:type owl:NamedIndividual ,
+                            :Primero ;
+                   :alergenos :Huevo ;
+                   :ingrediente_principal :Legumbres ;
+                   :azucares "medio" ;
+                   :calcio "alto" ;
+                   :calorias "medio" ;
+                   :descripcion "Ensalada con garbanzos y huevo duro" ;
+                   :hierro "alto" ;
+                   :saludable "true"^^xsd:boolean ;
+                   :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EnsaladaLentejas
+:EnsaladaLentejas rdf:type owl:NamedIndividual ,
+                           :Primero ;
+                  :ingrediente_principal :Legumbres ;
+                  :azucares "bajo" ;
+                  :calcio "alto" ;
+                  :calorias "medio" ;
+                  :descripcion "Ensalada de lentejas" ;
+                  :hierro "alto" ;
+                  :saludable "true"^^xsd:boolean ;
+                  :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EnsaladaPatata
+:EnsaladaPatata rdf:type owl:NamedIndividual ,
+                         :Primero ;
+                :ingrediente_principal :Patata ;
+                :azucares "alto" ;
+                :calcio "medio" ;
+                :calorias "alto" ;
+                :descripcion "Ensalada de Patatas" ;
+                :hierro "medio" ;
+                :ingrediente_principal "Patata" ;
+                :saludable "true"^^xsd:boolean ;
+                :temporada "calor" ;
+                :tipo_plato "Primero" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EnsaladaTomateQueso
+:EnsaladaTomateQueso rdf:type owl:NamedIndividual ,
+                              :Primero ;
+                     :alergenos :Lactosa ;
+                     :azucares "medio" ;
+                     :calcio "alto" ;
+                     :calorias "medio" ;
+                     :descripcion "Ensalada de tomate y queso fresco" ;
+                     :hierro "medio" ;
+                     :saludable "true"^^xsd:boolean ;
+                     :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Entremeses
+:Entremeses rdf:type owl:NamedIndividual ,
+                     :Primero ;
+            :ingrediente_principal :Embutido ;
+            :azucares "medio" ;
+            :calcio "medio" ;
+            :calorias "alto" ;
+            :descripcion "Entremeses variados" ;
+            :hierro "alto" ;
+            :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EscalopeTernera
+:EscalopeTernera rdf:type owl:NamedIndividual ,
+                          :Segundo ;
+                 :alergenos :Celiaco ,
+                            :Huevo ;
+                 :ingrediente_principal :Carne ;
+                 :azucares "bajo" ;
+                 :calcio "medio" ;
+                 :calorias "medio" ;
+                 :descripcion "Escalope de ternera con ensalada de lechuga" ;
+                 :hierro "alto" ;
+                 :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EspaguetisNapolitana
+:EspaguetisNapolitana rdf:type owl:NamedIndividual ,
+                               :Primero ;
+                      :alergenos :Celiaco ;
+                      :ingrediente_principal :Pasta ;
+                      :azucares "medio" ;
+                      :calcio "medio" ;
+                      :calorias "alto" ;
+                      :descripcion "Espaguetis napolitana" ;
+                      :hierro "medio" ;
+                      :ingrediente_principal "Pasta" ;
+                      :saludable "false"^^xsd:boolean ;
+                      :tipo_plato "Primero" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/EsparragosVinagreta
+:EsparragosVinagreta rdf:type owl:NamedIndividual ,
+                              :Primero ;
+                     :ingrediente_principal :Verduras ;
+                     :azucares "bajo" ;
+                     :calcio "medio" ;
+                     :calorias "bajo" ;
+                     :descripcion "Espárragos a la vinagreta" ;
+                     :hierro "medio" ;
+                     :saludable "true"^^xsd:boolean ;
+                     :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/FideosCazuela
+:FideosCazuela rdf:type owl:NamedIndividual ,
+                        :Primero ;
+               :alergenos :Celiaco ;
+               :ingrediente_principal :Carne ,
+                                      :Pasta ;
+               :azucares "medio" ;
+               :calcio "alto" ;
+               :calorias "alto" ;
+               :descripcion "Fideos a la cazuela" ;
+               :hierro "alto" ;
+               :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/FileteMero
+:FileteMero rdf:type owl:NamedIndividual ,
+                     :Segundo ;
+            :alergenos :Pescado ;
+            :ingrediente_principal :Pescado ;
+            :azucares "medio" ;
+            :calcio "alto" ;
+            :calorias "medio" ;
+            :descripcion "Filete de mero con patatas al vapor" ;
+            :hierro "alto" ;
+            :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/FiletePollo
+:FiletePollo rdf:type owl:NamedIndividual ,
+                      :Segundo ;
+             :ingrediente_principal :Carne ;
+             :azucares "bajo" ;
+             :calcio "medio" ;
+             :calorias "bajo" ;
+             :descripcion "Filete de pollo a la plancha con tomate y aceitunas" ;
+             :hierro "alto" ;
+             :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Flan
+:Flan rdf:type owl:NamedIndividual ,
+               :Postre ;
+      :alergenos :Huevo ,
+                 :Lactosa ;
+      :ingrediente_principal :Huevo ,
+                             :Lacteo ;
+      :azucares "alto" ;
+      :calcio "alto" ;
+      :calorias "alto" ;
+      :descripcion "Flan" ;
+      :hierro "alto" ;
+      :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Fruta
+:Fruta rdf:type owl:NamedIndividual ,
+                :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/FrutosSecos
+:FrutosSecos rdf:type owl:NamedIndividual ,
+                      :Intolerancia .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/GalletasIntegrales
+:GalletasIntegrales rdf:type owl:NamedIndividual ,
+                             :Desayuno ;
+                    :alergenos :Celiaco ;
+                    :ingrediente_principal :Cereales ;
+                    :azucares "medio" ;
+                    :calcio "alto" ;
+                    :calorias "medio" ;
+                    :descripcion "Galletas integrales" ;
+                    :hierro "medio" ;
+                    :saludable "true"^^xsd:boolean ;
+                    :tipo_plato "Desayuno" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Gazpacho
+:Gazpacho rdf:type owl:NamedIndividual ,
+                   :Primero ;
+          :ingrediente_principal :Verduras ;
+          :azucares "bajo" ;
+          :calcio "medio" ;
+          :calorias "bajo" ;
+          :descripcion "Gazpacho" ;
+          :hierro "medio" ;
+          :saludable "true"^^xsd:boolean ;
+          :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/HamburguesaPisto
+:HamburguesaPisto rdf:type owl:NamedIndividual ,
+                           :Segundo ;
+                  :ingrediente_principal :Carne ;
+                  :azucares "bajo" ;
+                  :calcio "medio" ;
+                  :calorias "medio" ;
+                  :descripcion "Hamburguesa de ternera con pisto" ;
+                  :hierro "alto" ;
+                  :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Huevo
+:Huevo rdf:type owl:NamedIndividual ,
+                :Intolerancia ,
+                :TipoComida ;
+       :alergenos :Huevo .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/JudiasPatatas
+:JudiasPatatas rdf:type owl:NamedIndividual ,
+                        :Primero ;
+               :ingrediente_principal :Patata ,
+                                      :Verduras ;
+               :azucares "bajo" ;
+               :calcio "medio" ;
+               :calorias "bajo" ;
+               :descripcion "Judías y patatas salteadas con jamón" ;
+               :hierro "medio" ;
+               :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/KiwiMandarina
+:KiwiMandarina rdf:type owl:NamedIndividual ,
+                        :Desayuno ,
+                        :Postre ;
+               :ingrediente_principal :Fruta ;
+               :azucares "medio" ;
+               :calcio "medio" ;
+               :calorias "bajo" ;
+               :descripcion "Combinado de kiwi con mandarina" ;
+               :hierro "medio" ;
+               :saludable "true"^^xsd:boolean ;
+               :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Lacteo
+:Lacteo rdf:type owl:NamedIndividual ,
+                 :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Lactosa
+:Lactosa rdf:type owl:NamedIndividual ,
+                  :Intolerancia .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/LasañaVerano
+:LasañaVerano rdf:type owl:NamedIndividual ,
+                       :Primero ;
+              :alergenos :Celiaco ,
+                         :Huevo ;
+              :ingrediente_principal :Pasta ;
+              :azucares "bajo" ;
+              :calcio "medio" ;
+              :calorias "bajo" ;
+              :descripcion "Lasaña de verano" ;
+              :hierro "medio" ;
+              :saludable "false"^^xsd:boolean ;
+              :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Legumbres
+:Legumbres rdf:type owl:NamedIndividual ,
+                    :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/LentejasEstofadas
+:LentejasEstofadas rdf:type owl:NamedIndividual ,
+                            :Primero ;
+                   :ingrediente_principal :Legumbres ;
+                   :azucares "bajo" ;
+                   :calcio "alto" ;
+                   :calorias "medio" ;
+                   :descripcion "Lentejas estofadas con verduras" ;
+                   :hierro "alto" ;
+                   :saludable "false"^^xsd:boolean ;
+                   :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/LomoSal
+:LomoSal rdf:type owl:NamedIndividual ,
+                  :Segundo ;
+         :ingrediente_principal :Carne ;
+         :azucares "bajo" ;
+         :calcio "medio" ;
+         :calorias "medio" ;
+         :descripcion "Lomo a la sal con puré de manzana" ;
+         :hierro "alto" ;
+         :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Macedonia
+:Macedonia rdf:type owl:NamedIndividual ,
+                    :Desayuno ,
+                    :Postre ;
+           :ingrediente_principal :Fruta ;
+           :azucares "medio" ;
+           :calcio "medio" ;
+           :calorias "bajo" ;
+           :descripcion "Macedonia" ;
+           :hierro "medio" ;
+           :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Mandarinas
+:Mandarinas rdf:type owl:NamedIndividual ,
+                     :Desayuno ,
+                     :Postre ;
+            :ingrediente_principal :Fruta ;
+            :azucares "medio" ;
+            :calcio "medio" ;
+            :calorias "bajo" ;
+            :descripcion "Mandarinas" ;
+            :hierro "medio" ;
+            :saludable "true"^^xsd:boolean ;
+            :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/ManzanaHorno
+:ManzanaHorno rdf:type owl:NamedIndividual ,
+                       :Desayuno ,
+                       :Postre ;
+              :ingrediente_principal :Fruta ;
+              :azucares "medio" ;
+              :calcio "medio" ;
+              :calorias "bajo" ;
+              :descripcion "Manzana al horno" ;
+              :hierro "medio" ;
+              :saludable "true"^^xsd:boolean ;
+              :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Melocoton
+:Melocoton rdf:type owl:NamedIndividual ,
+                    :Desayuno ,
+                    :Postre ;
+           :ingrediente_principal :Fruta ;
+           :azucares "medio" ;
+           :calcio "medio" ;
+           :calorias "bajo" ;
+           :descripcion "Melocotón" ;
+           :hierro "medio" ;
+           :saludable "true"^^xsd:boolean ;
+           :temporada "calor" ;
+           :tipo_plato "postre" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Melon
+:Melon rdf:type owl:NamedIndividual ,
+                :Desayuno ,
+                :Postre ;
+       :ingrediente_principal :Fruta ;
+       :azucares "medio" ;
+       :calcio "medio" ;
+       :calorias "bajo" ;
+       :descripcion "Melón" ;
+       :hierro "medio" ;
+       :saludable "true"^^xsd:boolean ;
+       :temporada "calor" ;
+       :tipo_plato "Postre" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Membrillo
+:Membrillo rdf:type owl:NamedIndividual ,
+                    :Postre ;
+           :ingrediente_principal :Fruta ;
+           :azucares "alto" ;
+           :calcio "medio" ;
+           :calorias "medio" ;
+           :descripcion "Membrillo" ;
+           :hierro "medio" ;
+           :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Menestra
+:Menestra rdf:type owl:NamedIndividual ,
+                   :Primero ;
+          :ingrediente_principal :Verduras ;
+          :azucares "bajo" ;
+          :calcio "alto" ;
+          :calorias "bajo" ;
+          :descripcion "Menestra tricolor" ;
+          :hierro "medio" ;
+          :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/MerluzaPlancha
+:MerluzaPlancha rdf:type owl:NamedIndividual ,
+                         :Segundo ;
+                :alergenos :Pescado ;
+                :ingrediente_principal :Pescado ;
+                :azucares "bajo" ;
+                :calcio "alto" ;
+                :calorias "bajo" ;
+                :descripcion "Merluza a la plancha y ensalada de lechuga con maíz" ;
+                :hierro "alto" ;
+                :ingrediente_principal "Pescado" ;
+                :saludable "true"^^xsd:boolean ;
+                :tipo_plato "Segundo" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/MouseYogur
+:MouseYogur rdf:type owl:NamedIndividual ,
+                     :Postre ;
+            :alergenos :Lactosa ;
+            :ingrediente_principal :Lacteo ;
+            :azucares "medio" ;
+            :calcio "alto" ;
+            :calorias "bajo" ;
+            :descripcion "Mouse de yogur" ;
+            :hierro "medio" ;
+            :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Muesli
+:Muesli rdf:type owl:NamedIndividual ,
+                 :Desayuno ;
+        :alergenos :Celiaco ,
+                   :Lactosa ;
+        :ingrediente_principal :Cereales ,
+                               :Lacteo ;
+        :azucares "medio" ;
+        :calcio "alto" ;
+        :calorias "bajo" ;
+        :descripcion "Leche con muesli" ;
+        :hierro "medio" ;
+        :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/MuslitosPollo
+:MuslitosPollo rdf:type owl:NamedIndividual ,
+                        :Segundo ;
+               :ingrediente_principal :Carne ;
+               :azucares "bajo" ;
+               :calcio "medio" ;
+               :calorias "medio" ;
+               :descripcion "Muslitos de pollo asados" ;
+               :hierro "alto" ;
+               :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/NaranjasMiel
+:NaranjasMiel rdf:type owl:NamedIndividual ,
+                       :Desayuno ,
+                       :Postre ;
+              :ingrediente_principal :Fruta ;
+              :azucares "alto" ;
+              :calcio "medio" ;
+              :calorias "medio" ;
+              :descripcion "Rodajas de naranja con miel" ;
+              :hierro "medio" ;
+              :saludable "true"^^xsd:boolean ;
+              :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Nectarina
+:Nectarina rdf:type owl:NamedIndividual ,
+                    :Desayuno ,
+                    :Postre ;
+           :ingrediente_principal :Fruta ;
+           :azucares "medio" ;
+           :calcio "medio" ;
+           :calorias "bajo" ;
+           :descripcion "Nectarina" ;
+           :hierro "medio" ;
+           :saludable "true"^^xsd:boolean ;
+           :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Nisperos
+:Nisperos rdf:type owl:NamedIndividual ,
+                   :Desayuno ,
+                   :Postre ;
+          :ingrediente_principal :Fruta ;
+          :azucares "medio" ;
+          :calcio "medio" ;
+          :calorias "bajo" ;
+          :descripcion "Nísperos" ;
+          :hierro "medio" ;
+          :saludable "true"^^xsd:boolean ;
+          :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Osteoporosis
+:Osteoporosis rdf:type owl:NamedIndividual ,
+                       :Enfermedad .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PaellaPescado
+:PaellaPescado rdf:type owl:NamedIndividual ,
+                        :Segundo ;
+               :alergenos :Pescado ;
+               :ingrediente_principal :Arroz ,
+                                      :Pescado ;
+               :azucares "medio" ;
+               :calcio "alto" ;
+               :calorias "alto" ;
+               :descripcion "Paella de pescado" ;
+               :hierro "alto" ;
+               :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Pan
+:Pan rdf:type owl:NamedIndividual ,
+              :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PanMermelada
+:PanMermelada rdf:type owl:NamedIndividual ,
+                       :Desayuno ;
+              :alergenos :Celiaco ;
+              :ingrediente_principal :Pan ;
+              :azucares "alto" ;
+              :calcio "medio" ;
+              :calorias "medio" ;
+              :descripcion "Pan de molde tostado con mermelada" ;
+              :hierro "medio" ;
+              :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PapilloteSalmon
+:PapilloteSalmon rdf:type owl:NamedIndividual ,
+                          :Segundo ;
+                 :alergenos :Celiaco ,
+                            :Pescado ;
+                 :ingrediente_principal :Pescado ;
+                 :azucares "bajo" ;
+                 :calcio "alto" ;
+                 :calorias "bajo" ;
+                 :descripcion "Papillote de salmón y merluza" ;
+                 :hierro "alto" ;
+                 :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Pasta
+:Pasta rdf:type owl:NamedIndividual ,
+                :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PastaZanahoria
+:PastaZanahoria rdf:type owl:NamedIndividual ,
+                         :Primero ;
+                :alergenos :Celiaco ;
+                :ingrediente_principal :Pasta ;
+                :azucares "medio" ;
+                :calcio "medio" ;
+                :calorias "medio" ;
+                :descripcion "Pasta fresca con zanahoria y remolacha rallada" ;
+                :hierro "medio" ;
+                :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Patata
+:Patata rdf:type owl:NamedIndividual ,
+                 :TipoComida ;
+        :tipo_TipoComida "Fibra" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PatatasProvenzal
+:PatatasProvenzal rdf:type owl:NamedIndividual ,
+                           :Primero ;
+                  :ingrediente_principal :Patata ;
+                  :azucares "medio" ;
+                  :calcio "medio" ;
+                  :calorias "medio" ;
+                  :descripcion "Tomates con patatas a la provenzal" ;
+                  :hierro "medio" ;
+                  :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Pera
+:Pera rdf:type owl:NamedIndividual ,
+               :Desayuno ,
+               :Postre ;
+      :ingrediente_principal :Fruta ;
+      :azucares "medio" ;
+      :calcio "medio" ;
+      :calorias "bajo" ;
+      :descripcion "Pera" ;
+      :hierro "medio" ;
+      :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PeraMiel
+:PeraMiel rdf:type owl:NamedIndividual ,
+                   :Desayuno ,
+                   :Postre ;
+          :ingrediente_principal :Fruta ;
+          :azucares "alto" ;
+          :calcio "medio" ;
+          :calorias "medio" ;
+          :descripcion "Dados de pera con miel" ;
+          :hierro "medio" ;
+          :saludable "true"^^xsd:boolean ;
+          :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PescaditoFrito
+:PescaditoFrito rdf:type owl:NamedIndividual ,
+                         :Segundo ;
+                :alergenos :Celiaco ,
+                           :Pescado ;
+                :ingrediente_principal :Pescado ;
+                :azucares "bajo" ;
+                :calcio "alto" ;
+                :calorias "alto" ;
+                :descripcion "Pescadito frito con lechuga" ;
+                :hierro "alto" ;
+                :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Pescado
+:Pescado rdf:type owl:NamedIndividual ,
+                  :Intolerancia ,
+                  :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Pizza4Estaciones
+:Pizza4Estaciones rdf:type owl:NamedIndividual ,
+                           :Segundo ;
+                  :alergenos :Celiaco ,
+                             :Lactosa ;
+                  :ingrediente_principal :Pasta ;
+                  :azucares "bajo" ;
+                  :calcio "alto" ;
+                  :calorias "alto" ;
+                  :descripcion "Pizza 4 estaciones" ;
+                  :hierro "medio" ;
+                  :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PizzaJamonQueso
+:PizzaJamonQueso rdf:type owl:NamedIndividual ,
+                          :Segundo ;
+                 :alergenos :Celiaco ,
+                            :Lactosa ;
+                 :ingrediente_principal :Pasta ;
+                 :azucares "bajo" ;
+                 :calcio "alto" ;
+                 :calorias "alto" ;
+                 :descripcion "Pizza de jamón y queso" ;
+                 :hierro "medio" ;
+                 :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Piña
+:Piña rdf:type owl:NamedIndividual ,
+               :Desayuno ,
+               :Postre ;
+      :ingrediente_principal :Fruta ;
+      :azucares "medio" ;
+      :calcio "medio" ;
+      :calorias "bajo" ;
+      :descripcion "Piña natural" ;
+      :hierro "medio" ;
+      :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Platano
+:Platano rdf:type owl:NamedIndividual ,
+                  :Desayuno ,
+                  :Postre ;
+         :ingrediente_principal :Fruta ;
+         :azucares "medio" ;
+         :calcio "medio" ;
+         :calorias "bajo" ;
+         :descripcion "Plátano" ;
+         :hierro "medio" ;
+         :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PlatanoFresas
+:PlatanoFresas rdf:type owl:NamedIndividual ,
+                        :Desayuno ,
+                        :Postre ;
+               :ingrediente_principal :Fruta ;
+               :azucares "medio" ;
+               :calcio "medio" ;
+               :calorias "bajo" ;
+               :descripcion "Macedonia de plátano y fresas" ;
+               :hierro "medio" ;
+               :saludable "true"^^xsd:boolean ;
+               :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PolloCerveza
+:PolloCerveza rdf:type owl:NamedIndividual ,
+                       :Segundo ;
+              :ingrediente_principal :Carne ;
+              :azucares "bajo" ;
+              :calcio "medio" ;
+              :calorias "medio" ;
+              :descripcion "Pollo a la cerveza" ;
+              :hierro "alto" ;
+              :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PolloHorno
+:PolloHorno rdf:type owl:NamedIndividual ,
+                     :Segundo ;
+            :ingrediente_principal :Carne ;
+            :azucares "bajo" ;
+            :calcio "medio" ;
+            :calorias "bajo" ;
+            :descripcion "Pollo al horno con berenjenas asadas" ;
+            :hierro "alto" ;
+            :ingrediente_principal "Pollo" ;
+            :saludable "true"^^xsd:boolean ;
+            :tipo_plato "Segundo" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Potaje
+:Potaje rdf:type owl:NamedIndividual ,
+                 :Primero ;
+        :ingrediente_principal :Legumbres ;
+        :azucares "medio" ;
+        :calcio "alto" ;
+        :calorias "medio" ;
+        :descripcion "Potaje" ;
+        :hierro "alto" ;
+        :saludable "false"^^xsd:boolean ;
+        :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/PurePatataZanahoria
+:PurePatataZanahoria rdf:type owl:NamedIndividual ,
+                              :Primero ;
+                     :alergenos :Lactosa ;
+                     :ingrediente_principal :Patata ;
+                     :azucares "bajo" ;
+                     :calcio "medio" ;
+                     :calorias "bajo" ;
+                     :descripcion "Puré de patata y zanahoria gratinado" ;
+                     :hierro "medio" ;
+                     :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SalchichasPlancha
+:SalchichasPlancha rdf:type owl:NamedIndividual ,
+                            :Segundo ;
+                   :ingrediente_principal :Carne ;
+                   :azucares "bajo" ;
+                   :calcio "alto" ;
+                   :calorias "medio" ;
+                   :descripcion "Salchichas a la plancha con espinacas salteadas" ;
+                   :hierro "alto" ;
+                   :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Sandia
+:Sandia rdf:type owl:NamedIndividual ,
+                 :Desayuno ,
+                 :Postre ;
+        :ingrediente_principal :Fruta ;
+        :azucares "medio" ;
+        :calcio "medio" ;
+        :calorias "bajo" ;
+        :descripcion "Sandía" ;
+        :hierro "medio" ;
+        :saludable "true"^^xsd:boolean ;
+        :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SepiaPlancha
+:SepiaPlancha rdf:type owl:NamedIndividual ,
+                       :Segundo ;
+              :ingrediente_principal :Pescado ;
+              :azucares "bajo" ;
+              :calcio "alto" ;
+              :calorias "medio" ;
+              :descripcion "Sepia a la plancha con chips de calabacín" ;
+              :hierro "alto" ;
+              :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SolomilloCerdo
+:SolomilloCerdo rdf:type owl:NamedIndividual ,
+                         :Segundo ;
+                :ingrediente_principal :Carne ;
+                :azucares "bajo" ;
+                :calcio "medio" ;
+                :calorias "medio" ;
+                :descripcion "Solomillo de cerdo con alcachofas" ;
+                :hierro "alto" ;
+                :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SopaArroz
+:SopaArroz rdf:type owl:NamedIndividual ,
+                    :Primero ;
+           :ingrediente_principal :Arroz ;
+           :azucares "bajo" ;
+           :calcio "medio" ;
+           :calorias "medio" ;
+           :descripcion "Sopa de arroz" ;
+           :hierro "medio" ;
+           :saludable "true"^^xsd:boolean ;
+           :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SopaCebolla
+:SopaCebolla rdf:type owl:NamedIndividual ,
+                      :Primero ;
+             :ingrediente_principal :Verduras ;
+             :azucares "bajo" ;
+             :calcio "alto" ;
+             :calorias "medio" ;
+             :descripcion "Sopa de cebolla" ;
+             :hierro "medio" ;
+             :saludable "true"^^xsd:boolean ;
+             :temporada "frio" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SopaMelon
+:SopaMelon rdf:type owl:NamedIndividual ,
+                    :Primero ;
+           :ingrediente_principal :Fruta ;
+           :azucares "medio" ;
+           :calcio "medio" ;
+           :calorias "bajo" ;
+           :descripcion "Sopa fría de melón" ;
+           :hierro "medio" ;
+           :saludable "true"^^xsd:boolean ;
+           :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SopaPescado
+:SopaPescado rdf:type owl:NamedIndividual ,
+                      :Primero ;
+             :alergenos :Pescado ;
+             :ingrediente_principal :Celiaco ,
+                                    :Pescado ;
+             :azucares "bajo" ;
+             :calcio "alto" ;
+             :calorias "medio" ;
+             :descripcion "Sopa de pescado con fideos" ;
+             :hierro "medio" ;
+             :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/SorbeteLimon
+:SorbeteLimon rdf:type owl:NamedIndividual ,
+                       :Postre ;
+              :alergenos :Huevo ;
+              :ingrediente_principal :Fruta ;
+              :azucares "alto" ;
+              :calcio "medio" ;
+              :calorias "alto" ;
+              :descripcion "Sorbete de limón" ;
+              :hierro "medio" ;
+              :saludable "false"^^xsd:boolean ;
+              :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TerneraPlancha
+:TerneraPlancha rdf:type owl:NamedIndividual ,
+                         :Segundo ;
+                :ingrediente_principal :Carne ;
+                :azucares "bajo" ;
+                :calcio "medio" ;
+                :calorias "medio" ;
+                :descripcion "Ternera a la plancha con patatas fritas" ;
+                :hierro "alto" ;
+                :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Tortellini
+:Tortellini rdf:type owl:NamedIndividual ,
+                     :Primero ;
+            :alergenos :Celiaco ;
+            :ingrediente_principal :Pasta ;
+            :azucares "medio" ;
+            :calcio "alto" ;
+            :calorias "alto" ;
+            :descripcion "Tortellini a la Italiana" ;
+            :hierro "alto" ;
+            :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TortillaPaisana
+:TortillaPaisana rdf:type owl:NamedIndividual ,
+                          :Segundo ;
+                 :alergenos :Huevo ;
+                 :ingrediente_principal :Huevo ;
+                 :azucares "bajo" ;
+                 :calcio "alto" ;
+                 :calorias "medio" ;
+                 :descripcion "Tortilla paisana" ;
+                 :hierro "alto" ;
+                 :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TortillaPatata
+:TortillaPatata rdf:type owl:NamedIndividual ,
+                         :Segundo ;
+                :alergenos :Huevo ;
+                :ingrediente_principal :Huevo ;
+                :azucares "medio" ;
+                :calcio "alto" ;
+                :calorias "alto" ;
+                :descripcion "Tortilla de patata y cebolla y pan con tomate" ;
+                :hierro "alto" ;
+                :ingrediente_principal "Huevo" ;
+                :saludable "false"^^xsd:boolean ;
+                :tipo_plato "Segundo" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TortillaPatataCalabacin
+:TortillaPatataCalabacin rdf:type owl:NamedIndividual ,
+                                  :Segundo ;
+                         :ingrediente_principal :Huevo ;
+                         :azucares "bajo" ;
+                         :calcio "alto" ;
+                         :calorias "alto" ;
+                         :descripcion "Tortilla de patata, cebolla y calabacín" ;
+                         :hierro "alto" ;
+                         :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TostadaMantequilla
+:TostadaMantequilla rdf:type owl:NamedIndividual ,
+                             :Desayuno ;
+                    :alergenos :Celiaco ,
+                               :Lactosa ;
+                    :ingrediente_principal :Pan ;
+                    :azucares "alto" ;
+                    :calcio "alto" ;
+                    :calorias "medio" ;
+                    :descripcion "Tostadas con mantequilla y mermelada" ;
+                    :hierro "medio" ;
+                    :saludable "false"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/TostadaQueso
+:TostadaQueso rdf:type owl:NamedIndividual ,
+                       :Desayuno ;
+              :alergenos :Celiaco ,
+                         :Lactosa ;
+              :ingrediente_principal :Pan ;
+              :azucares "medio" ;
+              :calcio "alto" ;
+              :calorias "medio" ;
+              :descripcion "Tostadas con queso fresco" ;
+              :hierro "medio" ;
+              :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/Verduras
+:Verduras rdf:type owl:NamedIndividual ,
+                   :TipoComida .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/YogurCereales
+:YogurCereales rdf:type owl:NamedIndividual ,
+                        :Desayuno ;
+               :alergenos :Celiaco ,
+                          :FrutosSecos ,
+                          :Lactosa ;
+               :ingrediente_principal :Lacteo ;
+               :azucares "alto" ;
+               :calcio "alto" ;
+               :calorias "medio" ;
+               :descripcion "Yogur con cereales y frutos secos" ;
+               :hierro "alto" ;
+               :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/YogurCerealesFruta
+:YogurCerealesFruta rdf:type owl:NamedIndividual ,
+                             :Desayuno ;
+                    :alergenos :Celiaco ,
+                               :Lactosa ;
+                    :ingrediente_principal :Lacteo ;
+                    :azucares "alto" ;
+                    :calcio "alto" ;
+                    :calorias "medio" ;
+                    :descripcion "Yogur con cereales y fruta troceada" ;
+                    :hierro "medio" ;
+                    :saludable "true"^^xsd:boolean .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/YogurFrutas
+:YogurFrutas rdf:type owl:NamedIndividual ,
+                      :Desayuno ;
+             :alergenos :Lactosa ;
+             :ingrediente_principal :Lacteo ;
+             :azucares "medio" ;
+             :calcio "alto" ;
+             :calorias "medio" ;
+             :descripcion "Yogur con trozos de fruta" ;
+             :hierro "medio" ;
+             :saludable "true"^^xsd:boolean ;
+             :tipo_plato "Desayuno" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/YogurMelocoton
+:YogurMelocoton rdf:type owl:NamedIndividual ,
+                         :Desayuno ,
+                         :Postre ;
+                :alergenos :Lactosa ;
+                :ingrediente_principal :Fruta ,
+                                       :Lacteo ;
+                :azucares "medio" ;
+                :calcio "alto" ;
+                :calorias "bajo" ;
+                :descripcion "Yogur con melocotón" ;
+                :hierro "medio" ;
+                :saludable "true"^^xsd:boolean ;
+                :temporada "calor" .
+
+
+###  http://www.semanticweb.org/liror/ontologies/2023/4/untitled-ontology-3/YogurTostadas
+:YogurTostadas rdf:type owl:NamedIndividual ,
+                        :Desayuno ;
+               :alergenos :Celiaco ,
+                          :Lactosa ;
+               :ingrediente_principal :Lacteo ,
+                                      :Pan ;
+               :azucares "medio" ;
+               :calcio "alto" ;
+               :calorias "medio" ;
+               :descripcion "Yogur con tostadas y mermelada" ;
+               :hierro "medio" ;
+               :saludable "true"^^xsd:boolean .
+
+
+###  Generated by the OWL API (version 4.5.25.2023-02-15T19:15:49Z) https://github.com/owlcs/owlapi

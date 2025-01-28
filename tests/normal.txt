@@ -1,0 +1,14 @@
+65
+hombre
+verano
+7
+n
+s
+n
+s
+Lactosa
+next
+Verduras Pescado
+next
+Pasta Carne
+next
