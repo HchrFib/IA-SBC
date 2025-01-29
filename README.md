@@ -1,4 +1,4 @@
-# IA-FIB_SBC
+# IA-SBC
 Practica SBC (Sistema Basado en el Conocimiento)
 
 ### Descripción del problema
